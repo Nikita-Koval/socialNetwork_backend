@@ -1,11 +1,24 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const url = "mongodb+srv://nkovalexceed:myst0347cl98@cluster0.1pxcu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const app = express();
-const testRoute = require('./routes/testRoute');
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const loginRoute = require("./routes/auth/loginRoute");
+require('dotenv').config();
 
-app.use(require('cors')());
-mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});
-app.use('/api/someTest', testRoute);
+const app = express();
+
+app.use(require("morgan")("dev"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(require("cors")());
+
+const url = process.env.DB_CONN;
+mongoose.connect(url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
+});
+
+app.use("/api/auth", loginRoute);
 
 module.exports = app;
