@@ -12,6 +12,10 @@ const usersScheme = new Schema({
     type: String,
     required: true,
   },
+  name: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = User = mongoose.model("Users_base", usersScheme);

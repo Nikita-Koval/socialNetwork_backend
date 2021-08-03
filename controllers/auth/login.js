@@ -27,7 +27,7 @@ module.exports.login = async (req, res) => {
     );
     res.status(200).json({
       token: `Bearer ${token}`,
-      email: candidate.email,
+      info: { email: candidate.email, name: candidate.name },
     });
   } else {
     res.status(401).json({
