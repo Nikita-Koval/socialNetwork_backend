@@ -5,7 +5,7 @@ const User = require("../../db_models/usersScheme");
 module.exports.login = async (req, res) => {
   const candidate = await User.findOne({ email: req.body.email });
   if (!candidate) {
-    res.status(404).json({
+    return res.status(404).json({
       message: "The user with this email was not found",
     });
   }
