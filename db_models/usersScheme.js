@@ -16,6 +16,22 @@ const usersScheme = new Schema({
     type: String,
     required: true,
   },
+  country: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
+  age: {
+    type: String,
+    required: true,
+  },
 });
 
-module.exports = User = mongoose.model("Users_base", usersScheme);
+module.exports = User = mongoose.model("Users_bases", usersScheme);
