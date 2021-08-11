@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const loginRoute = require("./routes/auth/loginRoute");
 const registrationRoute = require("./routes/auth/registrationRoute");
+const mapRoute = require("./routes/map/mapRoute");
 require('dotenv').config();
 
 const app = express();
@@ -22,5 +23,6 @@ mongoose.connect(url, {
 
 app.use("/api/auth", loginRoute);
 app.use("/api/auth", registrationRoute);
+app.use("/api/map", mapRoute);
 
 module.exports = app;
