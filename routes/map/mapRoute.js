@@ -2,6 +2,7 @@ const express = require("express");
 const mapController = require("../../controllers/map/getMarks");
 const router = express.Router();
 
-router.get("/getMarks", mapController.getMarks);
+router.get("/get-marks", mapController.getMarks);
+router.post("/new-mark", mapController.addNewMark);
 
 module.exports = router;

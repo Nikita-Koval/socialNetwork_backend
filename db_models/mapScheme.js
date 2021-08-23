@@ -12,7 +12,7 @@ const mapScheme = new Schema({
     required: true,
   },
   lng: {
-    type: Number,
+    type: Number, 
     required: true,
   },
   description: {
@@ -28,7 +28,7 @@ const mapScheme = new Schema({
     required: true,
   },
   userId: {
-    type: Number,
+    type: String,
     required: true,
   },
 });
