@@ -31,7 +31,7 @@ module.exports.register = async (req, res) => {
         );
         res.status(201).json({
           token: `Bearer ${token}`,
-          info: { email: result.email, name: result.name },
+          info: { email: result.email, userId: result._id, name: result.name },
         });
       });
   }
